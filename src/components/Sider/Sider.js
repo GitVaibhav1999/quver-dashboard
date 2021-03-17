@@ -1,5 +1,5 @@
 import React from 'react'
-import {
+import {  
     BrowserRouter as Router,
     Switch,
     Route,
@@ -11,6 +11,7 @@ import Dashboard from '../Dashboard/Dashboard';
 import File from '../FileMangement/File';
 import Manage from '../MangeClasses/Manage';
 import Upcoming from '../Upcoming/Upcoming';
+
 
 export default function Sider() {
     return (
