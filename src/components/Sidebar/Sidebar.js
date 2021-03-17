@@ -11,21 +11,23 @@ import Dashboard from '../Dashboard/Dashboard';
 import File from '../FileMangement/File';
 import Manage from '../MangeClasses/Manage';
 import Upcoming from '../Upcoming/Upcoming';
+import { bubble as Menu } from 'react-burger-menu';
+import './Sidebar.css'
+import { Button } from 'reactstrap';
 
-
-export default function Sider() {
+export default function Sidebar() {
     return (
         <div>
             <Router>
             <div>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/dashboard">Dashboard</Link></li>
-                    <li><Link to="/file">File Mangement</Link></li>
-                    <li><Link to="/calender">Calender</Link></li>
-                    <li><Link to="/create">create New Paper</Link></li>
-                    <li><Link to="/settings">Settings</Link></li>                   
-                </ul>
+                  <Menu>
+                    <Button color="info" className="col-12" size="lg"  href="/" block>Home</Button>
+                    <Button color="info" className="col-12" size="lg"  href="/dashboard" block>Dashboard</Button>
+                    <Button color="info" className="col-12" size="lg"  href="file" block>File Mangement</Button>
+                    <Button color="info" className="col-12" size="lg"  href="/calender" block>Calender</Button>
+                    <Button color="info" className="col-12" size="lg"  href="/create" block>create New Paper</Button>
+                    <Button color="info" className="col-12" size="lg"  href="/settings" block>Settings</Button>           
+                  </Menu>
                  <Switch>
                 <Route path="/dashboard"><Dashboard /></Route>   
                 <Route path="/create"><Create /></Route>               
@@ -39,3 +41,5 @@ export default function Sider() {
         </div>
     )
 }
+
+
