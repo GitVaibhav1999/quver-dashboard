@@ -5,12 +5,12 @@ import {
     Route,
     Link
   } from "react-router-dom";
-import Calender from './Calender';
-import Create from './Create';
-import Dashboard from './Dashboard';
-import File from './File';
-import Manage from './Manage';
-import Upcoming from './Upcoming';
+import Calender from '../Calender/Calender';
+import Create from '../CreateNewPaper/Create';
+import Dashboard from '../Dashboard/Dashboard';
+import File from '../FileMangement/File';
+import Manage from '../MangeClasses/Manage';
+import Upcoming from '../Upcoming/Upcoming';
 
 export default function Sider() {
     return (
@@ -25,7 +25,7 @@ export default function Sider() {
                     <li><Link to="/create">create New Paper</Link></li>
                     <li><Link to="/settings">Settings</Link></li>                   
                 </ul>
-                <Switch>
+                 <Switch>
                 <Route path="/dashboard"><Dashboard /></Route>   
                 <Route path="/create"><Create /></Route>               
                 <Route path="/file"><File /></Route>               

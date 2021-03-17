@@ -4,7 +4,7 @@ export default class Manage extends Component {
     render() {
         return (
             <div>
-            Manage
+            Manage classes
                 
             </div>
         )

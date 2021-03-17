@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Navbar from './Navbar'
-import Settings from './Settings'
-import Sider from './Sider'
-import Upcoming from './Upcoming'
+import Navbar from './Navbar/Navbar'
+import Settings from './Settings/Settings'
+import Sider from './Sider/Sider'
+import Upcoming from './Upcoming/Upcoming'
 
 export default class Main extends Component {
     render() {
