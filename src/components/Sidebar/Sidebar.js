@@ -1,45 +1,70 @@
-import React from 'react'
-import {  
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
-import Calender from '../Calender/Calender';
-import Create from '../CreateNewPaper/Create';
-import Dashboard from '../Dashboard/Dashboard';
-import File from '../FileMangement/File';
-import Manage from '../MangeClasses/Manage';
-import Upcoming from '../Upcoming/Upcoming';
-import { bubble as Menu } from 'react-burger-menu';
-import './Sidebar.css'
-import { Button } from 'reactstrap';
-
-export default function Sidebar() {
-    return (
-        <div>
-            <Router>
-            <div>
-                  <Menu>
-                    <Button color="info" className="col-12" size="lg"  href="/" block>Home</Button>
-                    <Button color="info" className="col-12" size="lg"  href="/dashboard" block>Dashboard</Button>
-                    <Button color="info" className="col-12" size="lg"  href="file" block>File Mangement</Button>
-                    <Button color="info" className="col-12" size="lg"  href="/calender" block>Calender</Button>
-                    <Button color="info" className="col-12" size="lg"  href="/create" block>create New Paper</Button>
-                    <Button color="info" className="col-12" size="lg"  href="/settings" block>Settings</Button>           
-                  </Menu>
-                 <Switch>
-                <Route path="/dashboard"><Dashboard /></Route>   
-                <Route path="/create"><Create /></Route>               
-                <Route path="/file"><File /></Route>               
-                <Route path="/manage"><Manage /></Route>               
-                <Route path="/upcoming"><Upcoming /></Route>   
-                <Route path="/calender"><Calender /></Route>                          
-                </Switch>
-            </div>
-            </Router>    
-        </div>
-    )
-}
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBriefcase,
+  faPager,
+  faCalendar,
+  faFile,
+  faSchool,
+  faTools,
+} from "@fortawesome/free-solid-svg-icons";
+import { NavItem, NavLink, Nav } from "reactstrap";
+import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 
+const SideBar = ({ isOpen, toggle }) => (
+  <div className={classNames("sidebar", { "is-open": isOpen })}>
+    <div className="sidebar-header">
+      <span color="info" onClick={toggle} style={{ color: "#fff" }}>
+        &times;
+      </span>
+      <h3> Quver</h3>
+    </div>
+    <div className="side-menu">
+      <Nav vertical className="list-unstyled pb-3">
+        <p>Go Ahead</p>
+        <NavItem>
+          <NavLink tag={Link} to={"/"}>
+            <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
+            Dashboard
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink tag={Link} to={"/create"}>
+            <FontAwesomeIcon icon={faPager} className="mr-2" />
+            Create New Paper
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink tag={Link} to={"/calender"}>
+            <FontAwesomeIcon icon={faCalendar} className="mr-2" />
+            Calender
+          </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink tag={Link} to={"/file"}>
+            <FontAwesomeIcon icon={faFile} className="mr-2" />
+            File Management
+          </NavLink>
+        </NavItem>
+        <NavItem className="">
+          <NavLink tag={Link} to={"/manage"}>
+            <FontAwesomeIcon icon={faSchool} className="mr-2" />
+           Manage classes
+          </NavLink>
+        </NavItem>
+        <NavItem className="">
+          <NavLink tag={Link} to={"/settings"}>
+            <FontAwesomeIcon icon={faTools} className="mr-2" />
+           Settings
+          </NavLink>
+        </NavItem>
+      </Nav>
+    </div>
+  </div>
+);
+
+
+
+export default SideBar;
