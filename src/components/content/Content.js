@@ -22,15 +22,14 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
   >
     <Topbar toggleSidebar={toggleSidebar} />
     <Switch>
-    <Route exact path="/dashboard" ><Dashboard/></Route>   
+        <Route exact path="/" ><Dashboard/></Route>  
+        <Route exact path="/dashboard" ><Dashboard/></Route>   
         <Route exact path="/create"><Create/></Route>               
         <Route exact path="/file"><File/></Route>               
         <Route exact path="/manage"><Manage/></Route>               
         <Route exact path="/upcoming"><Upcoming /></Route>   
         <Route exact path="/calender"><Calender /></Route>  
         <Route exact path="/settings"><Settings /></Route>  
-
-
     </Switch>
   </Container>
 );

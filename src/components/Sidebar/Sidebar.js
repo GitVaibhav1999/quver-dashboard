@@ -25,7 +25,7 @@ const SideBar = ({ isOpen, toggle }) => (
       <Nav vertical className="list-unstyled pb-3">
         <p>Go Ahead</p>
         <NavItem>
-          <NavLink tag={Link} to={"/"}>
+          <NavLink tag={Link} to={"/dashboard"}>
             <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
             Dashboard
           </NavLink>

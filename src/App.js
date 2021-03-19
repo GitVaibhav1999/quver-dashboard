@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import SideBar from "./components/sidebar/SideBar";
 import Content from "./components/content/Content";
 import "./App.css";
+import Upcoming from "./components/Upcoming/Upcoming";
 
 const App = () => {
   const [sidebarIsOpen, setSidebarOpen] = useState(true);
@@ -15,7 +16,9 @@ const App = () => {
       <div className="App wrapper">
         <SideBar toggle={toggleSidebar} isOpen={sidebarIsOpen} />
         <Content toggleSidebar={toggleSidebar} sidebarIsOpen={sidebarIsOpen} />
+        
       </div>
+      
     </Router>
   );
 };
