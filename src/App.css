@@ -85,12 +85,12 @@ li a.dropdown-toggle::after {
 }
 
 .side-menu::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
 }
 
 .side-menu::-webkit-scrollbar-thumb {
   background: #008B8B;
-  border-radius: 3px;
+  border-radius: 0px;
 }
 
 .side-menu::-webkit-scrollbar-thumb:hover {
