@@ -1,85 +1,74 @@
-import React, { Component } from 'react'
-import { Card, CardBody, CardText,CardTitle ,CardSubtitle} from 'reactstrap'
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import React, { Component, useEffect, useState } from 'react'
+import { Card, CardBody,Button, CardText,CardTitle ,CardSubtitle, CardImg} from 'reactstrap'
 import Upcoming from '../Upcoming/Upcoming'
+import './Dashboard.css'
 
-export default class Dashboard extends Component {
-    render() {
-        return (
-            <div className="row">
-                {/* <h1 className="display-5">Welcome to your Dashboard,User</h1> */}
-                <Card className="m-2">
-                <h5  className="m-2">Recently made papers</h5>
-                    <div className="row m-4">
-                        <div className="col-sm-12 col-md-6 col-lg-4 mt-3">
-                        <Card>
-                            <CardBody>
-                                <CardTitle tag="h5">Paper 1</CardTitle>
-                                    <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            </CardBody>
-                            <CardBody>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>                           
-                            </CardBody>
-                        </Card>
-                        </div>
-                        <div className="col-sm-12 col-md-6 col-lg-4 mt-3">
-                        <Card>
-                            <CardBody>
-                                <CardTitle tag="h5">Paper 1</CardTitle>
-                                    <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            </CardBody>
-                            <CardBody>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>                           
-                            </CardBody>
-                        </Card>
-                        </div>
-                        <div className="col-sm-12 col-md-6 col-lg-4 mt-3">
-                        <Card>
-                            <CardBody>
-                                <CardTitle tag="h5">Paper 1</CardTitle>
-                                    <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            </CardBody>
-                            <CardBody>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>                           
-                            </CardBody>
-                        </Card>
-                        </div>
-                        <div className="col-sm-12 col-md-6 col-lg-4 mt-3">
-                        <Card>
-                            <CardBody>
-                                <CardTitle tag="h5">Paper 1</CardTitle>
-                                    <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            </CardBody>
-                            <CardBody>
-                            <CardText> the card's content.</CardText>                           
-                            </CardBody>
-                        </Card>
-                        </div>
-                        <div className="col-sm-12 col-md-6 col-lg-4 mt-3">
-                        <Card>
-                            <CardBody>
-                                <CardTitle tag="h5">Paper 1</CardTitle>
-                                    <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            </CardBody>
-                            <CardBody>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>                           
-                            </CardBody>
-                        </Card>
-                        </div>
-                        <div className="col-sm-12 col-md-6 col-lg-4 mt-3">
-                        <Card>
-                            <CardBody>
-                                <CardTitle tag="h5">Paper 1</CardTitle>
-                                    <CardSubtitle tag="h6" className="mb-2 text-muted">Card subtitle</CardSubtitle>
-                            </CardBody>
-                            <CardBody>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>                           
-                            </CardBody>
-                        </Card>
-                        </div>                       
-                    </div>                   
-                </Card>    
-                <Upcoming/>
-            </div>
+
+export default function Dashboard() {
+    const [data, setdata] = useState([]);
+
+    const BASE_URL = 'http://localhost:3000/data/';
+    useEffect(() => {
+        axios.get(BASE_URL).then(
+            (res)=>{
+                setdata(res.data);              
+            }
         )
     }
+    , []);
+
+    function handleremove(index)
+    {
+       setdata([
+           ...data.slice(0,index),
+           ...data.slice(index+1,data.length)
+       ])
+
+    }
+    return (
+        <div>
+            <div className="row">
+                <Card className="m-2">
+                <h5  className="m-2">Recently made papers</h5>
+                    <div className="row m-3">
+                         {
+                        data.map((data,index)=>
+                        {
+                        const {id,title,batch,questions,answers}=data;
+                        return(
+                            <div className="col-sm-12 col-md-6 col-lg-3 mt-3">
+                    <Card key={id}>
+                    <CardBody>
+                        <CardTitle tag="h5">{title}</CardTitle>
+                            <CardSubtitle tag="h6" className="mb-2 text-muted">{batch}</CardSubtitle>
+                    </CardBody>
+                    <CardImg className="cardImg" handleremove={handleremove} src={questions} index={index} key={index}></CardImg>
+                    
+                    <CardBody>
+                    <Button className="btn-info m-1" size="sm">Download question</Button>
+                    <span/>
+                    <Button className="btn-info" size="sm">Download key</Button>
+
+                    </CardBody>
+                    </Card>
+                    </div>
+                        )
+
+                        }
+                        )
+                    }
+                    
+                                            
+                    </div>                   
+                </Card>    
+            </div>
+              
+        
+                      
+        </div>
+    )
 }
+
+

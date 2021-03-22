@@ -1,0 +1,25 @@
+{
+    "data":[
+        {
+            "id":1,
+            "title":"Sample Paper 1",
+            "batch":"Batch 1",
+            "questions":"https://www.shaalaa.com/images/maharashtra-state-board-ssc-english-second-third-language-10th-10th-standard-2018-2019-balbharati-model-question-paper-set-1_2:881a5454fe3c4176b2e1f7b06f1df984.jpg",
+            "answers":"https://i.pinimg.com/originals/e1/0d/09/e10d0919cc162416c52fca4ef7c62230.png"
+        },
+        {
+            "id":2,
+            "title":"Sample Paper 2",
+            "batch":"Batch 2",
+            "questions":"https://www.shaalaa.com/images/maharashtra-state-board-ssc-english-second-third-language-10th-10th-standard-2018-2019-balbharati-model-question-paper-set-1_2:881a5454fe3c4176b2e1f7b06f1df984.jpg",
+            "answers":"https://i.pinimg.com/originals/e1/0d/09/e10d0919cc162416c52fca4ef7c62230.png"
+        },
+        {
+            "id":3,
+            "title":"Sample Paper 3",
+            "batch":"Batch 3",
+            "questions":"https://www.shaalaa.com/images/maharashtra-state-board-ssc-english-second-third-language-10th-10th-standard-2018-2019-balbharati-model-question-paper-set-1_2:881a5454fe3c4176b2e1f7b06f1df984.jpg",
+            "answers":"https://i.pinimg.com/originals/e1/0d/09/e10d0919cc162416c52fca4ef7c62230.png"
+        }
+    ]
+}
