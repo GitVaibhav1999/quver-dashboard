@@ -51,7 +51,7 @@ a:focus {
 }
 
 .menu-open {
-  background: #6d7fcc;
+  background: #008B8B;
 }
 
 .nav-item:hover {
@@ -80,7 +80,7 @@ li a.dropdown-toggle::after {
   display: none;
 }
 .side-menu {
-  height: calc(100vh - 250px);
+  height: calc(100vh - 130px);
   overflow-y: scroll;
 }
 

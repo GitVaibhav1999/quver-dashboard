@@ -7,10 +7,27 @@ import {
   faFile,
   faSchool,
   faTools,
+  faHome,
 } from "@fortawesome/free-solid-svg-icons";
 import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
+import SubMenu from "./SubMenu";
+
+const submenus = [
+  [
+    {
+      title: "Set Questions Automatically",
+      target: "automatic",
+    },
+    {
+      title: "Set Questions Manually",
+      target: "manual",
+    },
+   
+  ],
+ 
+];
 
 
 const SideBar = ({ isOpen, toggle }) => (
@@ -30,12 +47,7 @@ const SideBar = ({ isOpen, toggle }) => (
             Dashboard
           </NavLink>
         </NavItem>
-        <NavItem>
-          <NavLink tag={Link} to={"/create"}>
-            <FontAwesomeIcon icon={faPager} className="mr-2" />
-            Create New Paper
-          </NavLink>
-        </NavItem>
+        <SubMenu title=" Create New Paper" icon={faHome} items={submenus[0]} />
         <NavItem>
           <NavLink tag={Link} to={"/calender"}>
             <FontAwesomeIcon icon={faCalendar} className="mr-2" />

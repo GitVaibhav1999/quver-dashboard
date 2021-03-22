@@ -11,6 +11,8 @@ import Manage from "../MangeClasses/Manage";
 import Upcoming from "../Upcoming/Upcoming";
 import Calender from "../Calender/Calender";
 import Settings from '../Settings/Settings'
+import Automatic from "../CreateNewPaper/Automatic";
+import Manual from "../CreateNewPaper/Manual";
 
 
 
@@ -24,7 +26,8 @@ const Content = ({ sidebarIsOpen, toggleSidebar }) => (
     <Switch>
         <Route exact path="/" ><Dashboard/></Route>  
         <Route exact path="/dashboard" ><Dashboard/></Route>   
-        <Route exact path="/create"><Create/></Route>               
+        <Route exact path="/automatic"><Automatic/></Route> 
+        <Route exact path="/manual"><Manual/></Route>                             
         <Route exact path="/file"><File/></Route>               
         <Route exact path="/manage"><Manage/></Route>               
         <Route exact path="/upcoming"><Upcoming /></Route>   
