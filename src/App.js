@@ -1,24 +1,21 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Sidebar from './components/Sidebar/Sidebar'
-import Content from "./components/content/Content";
-import "./App.css";
-import Upcoming from "./components/Upcoming/Upcoming";
+import { BrowserRouter, Route, Switch, useRouteMatch } from "react-router-dom";
+import Error from "./components/Error";
+import history from "./components/history";
+import Home from "./components/Home/Home";
+import Main from "./components/Main";
 
 const App = () => {
-  const [sidebarIsOpen, setSidebarOpen] = useState(true);
-  const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
-
   return (
-    <Router>
-      <div className="App wrapper">
-        <Sidebar toggle={toggleSidebar} isOpen={sidebarIsOpen} />
-        <Content toggleSidebar={toggleSidebar} sidebarIsOpen={sidebarIsOpen} />
-        
-      </div>
-      
-    </Router>
+    <BrowserRouter history={history} >
+      <Switch>
+        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/courses/:id" component={Main}></Route> 
+        <Route component={Error}/>     
+      </Switch>
+    </BrowserRouter>
+    
+  
   );
 };
 

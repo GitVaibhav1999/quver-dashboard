@@ -11,9 +11,10 @@ export default function Dashboard() {
 
     const BASE_URL = 'http://localhost:3000/data/';
     useEffect(() => {
-        axios.get(BASE_URL+'?_id=1').then(
+        axios.get(BASE_URL).then(
             (res)=>{
-                setdata(res.data);              
+                setdata(res.data);     
+                console.log(res.data);        
             }
         )
     }
@@ -55,7 +56,8 @@ export default function Dashboard() {
                                 </CardBody>
                             </Card>
                     </div>
-                        )})}                                            
+                        )}
+                        )}                                            
                     </div>                   
                 </Card>    
             </div>

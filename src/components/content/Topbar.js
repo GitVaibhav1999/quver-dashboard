@@ -9,6 +9,10 @@ import {
   Nav,
   NavItem,
   NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 } from "reactstrap";
 import { Link } from "react-router-dom";
 
@@ -26,6 +30,24 @@ const Topbar = ({ toggleSidebar }) => {
       <Button color="info" onClick={toggleSidebar}>
         <FontAwesomeIcon icon={faAlignLeft} />
       </Button>
+      
+      {/* <UncontrolledDropdown className="ml-auto" nav inNavbar>
+              <DropdownToggle nav caret>
+                Select courses
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem >
+                  <Link to="/settings">jldsafjl</Link>
+                </DropdownItem>
+                <DropdownItem>
+                  Option 2
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                  Reset
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown> */}
       <NavbarToggler onClick={toggleTopbar} />
       <Collapse isOpen={topbarIsOpen} navbar>
         <Nav className="ml-auto" navbar>
