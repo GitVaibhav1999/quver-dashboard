@@ -6,11 +6,11 @@ import SideBar from './Sidebar/Sidebar';
 import Content from './content/Content';
 
 export default function Main(props) {
-    const [sidebarIsOpen, setSidebarOpen] = useState(true);
+  const [sidebarIsOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => setSidebarOpen(!sidebarIsOpen);
   console.log(props.match.path);
-  return (
-    <Router>
+  return (    
+    <Router>   
       <div className="App wrapper">
         <SideBar routes={props.match.path} toggle={toggleSidebar} isOpen={sidebarIsOpen} />
         <Content routes={props.match.path}  toggleSidebar={toggleSidebar} sidebarIsOpen={sidebarIsOpen} />       

@@ -38,9 +38,6 @@ const navitems=()=>{
 }
 
 const SideBar = ({ isOpen, toggle ,routes}) => 
-
-
-
 {
   return(
     (
@@ -55,9 +52,9 @@ const SideBar = ({ isOpen, toggle ,routes}) =>
           <Nav vertical className="list-unstyled pb-3">
             <p>Go Ahead</p>
             <NavItem>
-              <NavLink tag={Link} to={`${routes}/dashboard`}>
+              <NavLink tag={Link} to={`${routes}/home`}>
                 <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
-                Dashboard
+                Home
               </NavLink>
             </NavItem>
             <SubMenu title=" Create New Paper" icon={faHome} items={submenus[0]} />

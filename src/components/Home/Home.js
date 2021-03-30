@@ -1,22 +1,70 @@
-import React from 'react'
-import { Button } from 'reactstrap'
-import Courses from '../Courses/Courses'
-import { BrowserRouter, Link ,Route, Switch} from 'react-router-dom'
-import Main from '../Main'
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import React, { Component, useEffect, useState } from 'react'
+import { Card, CardBody,Button, CardText,CardTitle ,CardSubtitle, CardImg} from 'reactstrap'
+import Upcoming from '../Upcoming/Upcoming'
+import './Dashboard.css'
 
-export default function Home(props) {
-    console.log(props);
+
+export default function Home() {
+    const [data, setdata] = useState([]);
+
+    const BASE_URL = 'http://localhost:3000/1';
+    useEffect(() => {
+        axios.get(BASE_URL).then(
+            (res)=>{
+                setdata(res.data);     
+                console.log(res);        
+            }
+        )
+    }
+    , []);
+
+    function handleremove(index)
+    {
+       setdata([
+           ...data.slice(0,index),
+           ...data.slice(index+1,data.length)
+       ])
+    }
+    const handleclick=(e)=>{
+        console.log(e.target.id);
+    }
     return (
         <div>
-        <div className="jumbotron">
-        <h1 className="display-5">
-           Welcome User!!
-           <p className="lead">All is here</p>
-        </h1>
-        </div>
-        <Courses/>
-       
-
+            <div className="row">
+                <Card className="m-2">
+                    <h5  className="m-2">Recently made papers/Home</h5>
+                        <div className="row m-3">
+                         {
+                        data.map((data,index)=>
+                        {
+                        const {id,title,batch,questions,answers}=data;
+                        return(
+                            <div className="col-sm-12 col-md-6 col-lg-3 mt-3">
+                            <Card key={id}>
+                                <CardBody>
+                                   <CardTitle tag="h5">{title}</CardTitle>
+                                        <CardSubtitle tag="h6" className="mb-2 text-muted">{batch}</CardSubtitle>
+                                   </CardBody>
+                                <CardImg className="cardImg" handleremove={handleremove} src={questions} index={index} key={index}></CardImg>                            
+                                <CardBody>
+                                <Button id={id}  onClick={handleclick} className="btn-info m-1" size="sm">Download question</Button>
+                                <span/>
+                                <Button className="btn-info" size="sm">Download key</Button>
+                                </CardBody>
+                            </Card>
+                    </div>
+                        )}
+                        )}                                            
+                    </div>                   
+                </Card>    
+            </div>
+              
+        
+                      
         </div>
     )
 }
+
+

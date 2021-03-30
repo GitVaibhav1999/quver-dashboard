@@ -4,7 +4,7 @@ export default class Calender extends Component {
     render() {
         return (
             <div>
-                Calender
+                Calendar
             </div>
         )
     }
