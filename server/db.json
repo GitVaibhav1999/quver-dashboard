@@ -4,8 +4,8 @@
         "coaching1":[
             {
                 "id":1,
-                "course":"course 1",
-                "title":"Sample Paper 1",
+                "course":"coaching1 course 1",
+                "title":"coaching1 Sample Paper 1",
                 "batch":"Batch 1",
                 "questions":"https://www.shaalaa.com/images/maharashtra-state-board-ssc-english-second-third-language-10th-10th-standard-2018-2019-balbharati-model-question-paper-set-1_2:881a5454fe3c4176b2e1f7b06f1df984.jpg",
                 "answers":"https://i.pinimg.com/originals/e1/0d/09/e10d0919cc162416c52fca4ef7c62230.png"
@@ -30,24 +30,24 @@
         "coaching2":[
             {
                 "id":1,
-                "course":"course 1",
+                "course":" coaching2 course 1",
                 "title":"Sample Paper 1",
-                "batch":"Batch 1",
+                "batch":"coaching2 Batch 1",
                 "questions":"https://www.shaalaa.com/images/maharashtra-state-board-ssc-english-second-third-language-10th-10th-standard-2018-2019-balbharati-model-question-paper-set-1_2:881a5454fe3c4176b2e1f7b06f1df984.jpg",
                 "answers":"https://i.pinimg.com/originals/e1/0d/09/e10d0919cc162416c52fca4ef7c62230.png"
             },
             {
                 "id":2,
                 "course":"course 2",
-                "title":"Sample Paper 2",
-                "batch":"Batch 2",
+                "title":"Sample 2",
+                "batch":"coaching2 Batch 2",
                 "questions":"https://3.bp.blogspot.com/-yUaxm3EubAA/WkMxWLIGSaI/AAAAAAAABHA/bJmRV84aDEcvb9bs7JQxM0XvOda6DpAagCLcBGAs/s1600/cpo.png",
                 "answers":"https://i.pinimg.com/originals/e1/0d/09/e10d0919cc162416c52fca4ef7c62230.png"
             },
             {
                 "id":3,
                 "course":"course 3",
-                "title":"Sample Paper 3",
+                "title":"coaching2 Sample Paper 3",
                 "batch":"Batch 3",
                 "questions":"https://farm1.staticflickr.com/638/21592636038_204105cd2e_b.jpg",
                 "answers":"https://i.pinimg.com/originals/e1/0d/09/e10d0919cc162416c52fca4ef7c62230.png"

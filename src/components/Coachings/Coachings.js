@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Link ,Route, Switch} from 'react-router-dom'
 import { Button } from 'reactstrap'
+import Topbar from '../content/Topbar';
 
 export default function Coachings(props) {
     console.log(props);
@@ -39,7 +40,8 @@ export default function Coachings(props) {
 
     return (
         <div>    
-         <div className="container">
+         <div className="">
+         <Topbar/>
         <h1 className="display-6"> Select courses here</h1>
         <ul>
             {

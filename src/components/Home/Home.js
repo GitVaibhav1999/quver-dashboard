@@ -4,22 +4,24 @@ import React, { Component, useEffect, useState } from 'react'
 import { Card, CardBody,Button, CardText,CardTitle ,CardSubtitle, CardImg} from 'reactstrap'
 import Upcoming from '../Upcoming/Upcoming'
 import './Dashboard.css'
+const queryString = require('query-string');
 
-
-export default function Home() {
+export default function Home(props) {
     const [data, setdata] = useState([]);
-
-    const BASE_URL = 'http://localhost:3000/1';
+    const parsed = queryString.parse(props.search);
+    const coachingid=parsed.id;
+ 
+    
+    const BASE_URL = 'http://localhost:3000/data/';
     useEffect(() => {
         axios.get(BASE_URL).then(
             (res)=>{
-                setdata(res.data);     
-                console.log(res);        
+                setdata(res.data[coachingid]);     
             }
         )
     }
     , []);
-
+    console.log(data);
     function handleremove(index)
     {
        setdata([

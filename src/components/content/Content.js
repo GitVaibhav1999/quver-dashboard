@@ -22,7 +22,7 @@ const Content = ({ sidebarIsOpen, toggleSidebar ,search,path}) => (
     className={classNames("content", { "is-open": sidebarIsOpen })}>
     <Topbar toggleSidebar={toggleSidebar} />
     <Switch> 
-        <Route exact path={`${path}/home`} component={Home} ></Route>   
+        <Route exact path={`${path}/home`}  ><Home search={search}/></Route>   
         <Route exact path={`${path}/automatic`}><Automatic/></Route> 
         <Route exact path={`${path}/manual`}><Manual/></Route>                             
         <Route exact path={`${path}/file`} component={File}></Route>               
@@ -30,16 +30,6 @@ const Content = ({ sidebarIsOpen, toggleSidebar ,search,path}) => (
         <Route exact path={`${path}/upcoming`}><Upcoming /></Route>   
         <Route exact path={`${path}/calendar`}><Calender /></Route>  
         <Route exact path={`${path}/settings`}><Settings /></Route>  
-        {/* <Redirect from exact path="/" to="/dashboard/coachings" />
-        <Route exact path="/dashboard/coachings" component={Coachings} ></Route>    
-        <Route exact path="/dashboard/home"><Home/></Route>                        
-        <Route exact path="/dashboard/manage"><Manage/></Route>               
-        <Route exact path="/dashboard/upcoming"><Upcoming /></Route>   
-        <Route exact path="/dashboard/calendar"><Calender /></Route>  
-        <Route exact path="/dashboard/settings"><Settings /></Route>  
-        <Route exact path="/dashboard/upcoming"><Upcoming /></Route>  
-        <Route exact path="/dashboard/manual"><Manual /></Route>
-        <Route exact path="/dashboard/automatic"><Automatic /></Route>   */}
     </Switch>
   </Container>
 );
