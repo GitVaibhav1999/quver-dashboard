@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const SubMenu = (props) => {
   const [collapsed, setCollapsed] = useState(true);
   const toggle = () => setCollapsed(!collapsed);
-  const { icon, title, items } = props;
+  const { icon, title, items,path,search } = props;
 
   return (
     <div>
@@ -27,7 +27,7 @@ const SubMenu = (props) => {
       >
         {items.map((item, index) => (
           <NavItem key={index} className="pl-4">
-            <NavLink tag={Link} to={item.target}>
+            <NavLink tag={Link} to={`${item.target}${search}`}>
               {item.title}
             </NavLink>
           </NavItem>

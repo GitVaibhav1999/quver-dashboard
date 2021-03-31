@@ -54,7 +54,7 @@ const SideBar = ({ isOpen, toggle ,path,search}) =>
                 Home
               </NavLink>
             </NavItem>
-            <SubMenu title=" Create New Paper" icon={faHome} items={submenus[0]} />
+            <SubMenu path={path} search={search} title=" Create New Paper" icon={faHome} items={submenus[0]} />
             <NavItem>
               <NavLink tag={Link} to={`${path}/calendar${search}`}>
                 <FontAwesomeIcon icon={faCalendar} className="mr-2" />
