@@ -28,7 +28,6 @@ const submenus = [
   ],
  
 ];
-
 const navitems=()=>{
   return(
     <div>
@@ -36,15 +35,13 @@ const navitems=()=>{
     </div>
   )
 }
-
-const SideBar = ({ isOpen, toggle ,routes}) => 
+const SideBar = ({ isOpen, toggle ,path,search}) => 
 {
   return(
     (
       <div className={classNames("sidebar", { "is-open": isOpen })}>
         <div className="sidebar-header">
-          <span color="info" onClick={toggle} style={{ color: "#fff" }}>
-           
+          <span color="info" onClick={toggle} style={{ color: "#fff" }}>          
           </span>
           <h3> Quver</h3>
         </div>
@@ -52,37 +49,36 @@ const SideBar = ({ isOpen, toggle ,routes}) =>
           <Nav vertical className="list-unstyled pb-3">
             <p>Go Ahead</p>
             <NavItem>
-              <NavLink tag={Link} to={`${routes}/home`}>
+              <NavLink tag={Link} to={`${path}/home${search}`}>
                 <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
                 Home
               </NavLink>
             </NavItem>
             <SubMenu title=" Create New Paper" icon={faHome} items={submenus[0]} />
             <NavItem>
-              <NavLink tag={Link} to={`${routes}/calender`}>
+              <NavLink tag={Link} to={`${path}/calendar${search}`}>
                 <FontAwesomeIcon icon={faCalendar} className="mr-2" />
-                Calender
+                Calendar
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to={`${routes}/file`}>
+              <NavLink tag={Link} to={`${path}/file${search}`}>
                 <FontAwesomeIcon icon={faFile} className="mr-2" />
                 File Management
               </NavLink>
             </NavItem>
             <NavItem className="">
-              <NavLink tag={Link} to={`${routes}/manage`}>
+              <NavLink tag={Link} to={`${path}/manage${search}`}>
                 <FontAwesomeIcon icon={faSchool} className="mr-2" />
                Manage classes
               </NavLink>
             </NavItem>
             <NavItem className="">
-              <NavLink tag={Link} to={`${routes}/settings`}>
+              <NavLink tag={Link} to={`${path}/settings${search}`}>
                 <FontAwesomeIcon icon={faTools} className="mr-2" />
                Settings
               </NavLink>
-            </NavItem>
-           
+            </NavItem>          
           </Nav>
         </div>
       </div>

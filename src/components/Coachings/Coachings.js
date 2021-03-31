@@ -13,15 +13,12 @@ export default function Coachings(props) {
             (res)=>{
                 setdata(res.data)
                  console.log(Object.keys(res.data));
-            }
-
-           
-        )
-        
+            }          
+        )        
         .catch(
             (err)=>
             {
-                console.log(err);
+                <h1>{err}</h1>
             }
         )
     }

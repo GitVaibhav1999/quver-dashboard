@@ -13,8 +13,8 @@ const App = () => {
     <BrowserRouter history={history} >
       <Switch>
         <Redirect exact from="/" to="/dashboard/coachings" ></Redirect>
-        <Route  path="/dashboard/coachings" component={Coachings}></Route> 
-        <Route  path="/dashboard" component={Main}></Route> 
+        <Route exact path="/dashboard/coachings" component={Coachings}></Route> 
+        <Route   path="/dashboard" component={Main}></Route> 
         <Route component={Error}/>
       </Switch>
     </BrowserRouter>  
