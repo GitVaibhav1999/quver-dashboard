@@ -6,6 +6,7 @@ import Error from "./components/Error";
 import history from "./components/history";
 import Home from "./components/Home/Home";
 import Main from "./components/Main";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const App = () => {

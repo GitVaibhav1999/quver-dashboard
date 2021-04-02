@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Table } from 'react-bootstrap';
 import { BrowserRouter, Link ,Route, Switch} from 'react-router-dom'
 import { Button } from 'reactstrap'
 import Topbar from '../content/Topbar';
@@ -39,23 +40,36 @@ export default function Coachings(props) {
     }
 
     return (
-        <div>    
+        <div>
+         <Topbar/>   
          <div className="">
-         <Topbar/>
-        <h1 className="display-6"> Select courses here</h1>
-        <ul>
-            {
-                coachings.map((data)=>
+        <h1 className="display-5 ">Courses</h1>
+           <Table striped  borderedless hover>
+              <thead >
+                <tr >
+                <th >Coachings</th>
+                <th>Colomn 1</th>
+                <th>Username</th>
+                </tr>
+            </thead>
                 {
-                    return(
-                        <Link to={`/dashboard/home?id=${data}`}>{data}<br/></Link>
-                    )
-                })
-            }
+                    coachings.map((data)=>
+                    {
+                        return(
+                            <tbody>
+                                <tr>
+                                <td><Link to={`/dashboard/home?id=${data}`}>{data}<br/></Link></td>
+                                <td>Colomn 1</td>
+                                <td>@user </td>
+                                </tr>
+                            
+                            </tbody>
+                        )
+                    })
+                }
             
-
-
-        </ul>
+            </Table>
+     
 
         </div>        
         </div>
