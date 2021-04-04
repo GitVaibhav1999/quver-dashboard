@@ -17,7 +17,7 @@ export default function Papers(props) {
                         {
                         const {ID,Title,Time,Marks,NumofPaper}=data;
                         return(
-                            <div className="col-sm-12 col-md-4" >
+                            <div className="col-sm-12 col-md-4 " >
                             <Card key={ID} >
                                 <Card.Body>
                                    <Card.Title tag="h5">{Title}</Card.Title>
