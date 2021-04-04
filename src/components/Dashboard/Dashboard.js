@@ -12,8 +12,6 @@ export default function Dashboard(props) {
         </h1>
         </div>
         <Coachings/>
-       
-
         </div>
     )
 }

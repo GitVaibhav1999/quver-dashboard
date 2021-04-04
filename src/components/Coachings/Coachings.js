@@ -4,17 +4,18 @@ import { Table } from 'react-bootstrap';
 import { BrowserRouter, Link ,Route, Switch} from 'react-router-dom'
 import { Button } from 'reactstrap'
 import Topbar from '../content/Topbar';
+import "./Coachings.css"
 
 export default function Coachings(props) {
     console.log(props);
     const [data, setdata] = useState([]);
 
-    const BASE_URL = 'http://localhost:3000/data/';
+    const BASE_URL = 'http://52.66.239.92/api/coaching/fetchCoaching?TeacherID=58';
     useEffect(() => {
         axios.get(BASE_URL).then(
             (res)=>{
                 setdata(res.data)
-                 console.log(Object.keys(res.data));
+                console.log(res.data);
             }          
         )        
         .catch(
@@ -26,7 +27,6 @@ export default function Coachings(props) {
     }
     , []);
 
-    const coachings=Object.keys(data);
 
     function handleremove(index)
     {
@@ -42,36 +42,34 @@ export default function Coachings(props) {
     return (
         <div>
          <Topbar/>   
-         <div className="">
-        <h1 className="display-5 ">Courses</h1>
-           <Table striped  borderedless hover>
-              <thead >
-                <tr >
-                <th >Coachings</th>
-                <th>Colomn 1</th>
-                <th>Username</th>
-                </tr>
-            </thead>
+         <div className="m-5">
+         <h1 className="display-5  ">Courses</h1>
+           <Table  className="Table" borderless striped  hover  style={{borderBottom: "2px solid 	#DCDCDC "}} >
+              <thead>
+                <tr style={{borderBottom: "2px solid 	#DCDCDC "}}>
+                    <th>Coachings</th>
+                    <th>Colomn 1</th>
+                    <th>Username</th>
+                </tr>             
+              </thead>            
                 {
-                    coachings.map((data)=>
+                    data.map((data)=>
                     {
                         return(
-                            <tbody>
-                                <tr>
-                                <td><Link to={`/dashboard/home?id=${data}`}>{data}<br/></Link></td>
-                                <td>Colomn 1</td>
-                                <td>@user </td>
-                                </tr>
-                            
-                            </tbody>
+                             <>
+                                <tbody  >
+                                    <tr >
+                                        <td><Link to={`/dashboard/home?CoachingID=${data.CoachingID}`}>{data.CoachingName}<br/></Link></td>
+                                        <td>Colomn 1</td>
+                                        <td>@user </td>
+                                    </tr>    
+                                </tbody>
+                            </>                           
                         )
                     })
-                }
-            
+                }           
             </Table>
-     
-
-        </div>        
-        </div>
+           </div>        
+         </div>
     )
 }

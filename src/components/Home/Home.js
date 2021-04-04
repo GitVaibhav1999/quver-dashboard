@@ -1,71 +1,59 @@
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import React, { Component, useEffect, useState } from 'react'
-import { Card, CardBody,Button, CardText,CardTitle ,CardSubtitle, CardImg} from 'reactstrap'
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import Upcoming from '../Upcoming/Upcoming'
 import './Dashboard.css'
+import Papers from './Papers';
 const queryString = require('query-string');
 
 export default function Home(props) {
     const [data, setdata] = useState([]);
     const parsed = queryString.parse(props.search);
     const coachingid=parsed.id;
+    const[DPP,setdpp]=useState([]);
  
     
-    const BASE_URL = 'http://localhost:3000/data/';
+    const BASE_URL = 'http://52.66.239.92/api/coaching/getQuestionByCoaching?CoachingID=126';
     useEffect(() => {
         axios.get(BASE_URL).then(
             (res)=>{
-                setdata(res.data[coachingid]);     
+                setdata(res.data);     
             }
         )
     }
     , []);
-    console.log(data);
-    function handleremove(index)
+
+  
+    let filterdpp=()=>
     {
-       setdata([
-           ...data.slice(0,index),
-           ...data.slice(index+1,data.length)
-       ])
-    }
-    const handleclick=(e)=>{
-        console.log(e.target.id);
+        const dpp=data.filter((dppdata)=>dppdata.IsDPP.includes("n"));
+        setdpp(dpp)
+        console.log(DPP);
     }
     return (
-        <div>
-            <div className="row">
+        <>
+            <Row>
                 <Card className="m-2">
-                    <h5  className="m-2">Recently made papers/Home</h5>
-                        <div className="row m-3">
-                         {
-                        data.map((data,index)=>
-                        {
-                        const {id,title,batch,questions,answers}=data;
-                        return(
-                            <div className="col-sm-12 col-md-6 col-lg-3 mt-3">
-                            <Card key={id}>
-                                <CardBody>
-                                   <CardTitle tag="h5">{title}</CardTitle>
-                                        <CardSubtitle tag="h6" className="mb-2 text-muted">{batch}</CardSubtitle>
-                                   </CardBody>
-                                <CardImg className="cardImg" handleremove={handleremove} src={questions} index={index} key={index}></CardImg>                            
-                                <CardBody>
-                                <Button id={id}  onClick={handleclick} className="btn-info m-1" size="sm">Download question</Button>
-                                <span/>
-                                <Button className="btn-info" size="sm">Download key</Button>
-                                </CardBody>
-                            </Card>
-                    </div>
-                        )}
-                        )}                                            
-                    </div>                   
+                    <Row className="justify-content-center">                        
+                        <Col sm={4}>
+                        </Col>
+                        <Col sm={12} md={4} >
+                            <Button  className="mt-3 shadow" key="sample-paper" variant="info" onClick={filterdpp}   >Sample Papers</Button>
+                            <Button className="ml-5 mt-3 shadow" key="dpp" variant="info" onClick={filterdpp}  > 
+                              DPP                        
+                            </Button>
+                        </Col>
+                        <Col sm={4}>
+                        </Col>           
+                    </Row>
+                    <Row> 
+                    
+                    <Papers data={DPP}/>
+
+                    </Row>
                 </Card>    
-            </div>
-              
-        
-                      
-        </div>
+            </Row>                            
+        </>
     )
 }
 

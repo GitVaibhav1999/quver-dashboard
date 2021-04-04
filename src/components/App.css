@@ -45,7 +45,7 @@ a:focus {
   padding: 1em;
 }
 
-.sidebar ul p {
+.sidebar  p {
   color: #fff;
   padding: 10px;
 }
@@ -112,7 +112,7 @@ li a.dropdown-toggle::after {
   } */
 
   .content.is-open {
-    margin-left: 100%;
+    margin-left: 200%;
   }
 
   .sidebar.is-open {
@@ -131,4 +131,8 @@ li a.dropdown-toggle::after {
     position: relative;
     left: 68%;
   }
+}
+.selected{
+  font-weight: "bold";
+  color :#fff;
 }

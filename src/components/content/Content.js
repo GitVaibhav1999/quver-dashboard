@@ -1,10 +1,7 @@
 import React from "react";
 import classNames from "classnames";
-import { Container } from "reactstrap";
 import { Switch, Route, Redirect } from "react-router-dom";
-
 import Topbar from "./Topbar";
-import Dashboard from "../Home/Home";
 import Manage from "../MangeClasses/Manage";
 import Upcoming from "../Upcoming/Upcoming";
 import Calender from "../Calender/Calender";
@@ -14,6 +11,7 @@ import Manual from "../CreateNewPaper/Manual";
 import Home from "../Home/Home";
 import File from "../FileMangement/File";
 import Error from "../Error";
+import { Container } from "react-bootstrap";
 const id=1;
 
 const Content = ({ sidebarIsOpen, toggleSidebar ,search,path}) => (

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { BrowserRouter, Redirect, Route, Switch, useRouteMatch } from "react-router-dom";
+import React   from "react";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Coachings from "./components/Coachings/Coachings";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Error from "./components/Error";
 import history from "./components/history";
-import Home from "./components/Home/Home";
 import Main from "./components/Main";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
