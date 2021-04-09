@@ -29,6 +29,7 @@ import logo from "./assets/logo.png";
 import Home from "./components/Home/Home";
 import { Link } from "react-router-dom";
 
+import "./Navbar.css";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -43,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
+    // height: "7vh",
     backgroundColor: "#D5D5D5",
     [theme.breakpoints.up("sm")]: {
       width: "100vw",
@@ -59,8 +61,10 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-    height: "100vh",
-    marginTop: "4rem",
+    backgroundColor: "#C9C9C9",
+    // height: "100vh",
+    marginTop: "4.3rem",
+    border: "0",
   },
   content: {
     flexGrow: 1,
@@ -78,71 +82,72 @@ function Navbar(props) {
     setMobileOpen(!mobileOpen);
   };
 
-
-
   const drawer = (
-    // <div style={{ height: "10%" }}>
-    <Grid
-      container
-      direction="column"
-      justify="space-between"
-      alignItems="flex-start"
-      spacing={1}
-      style={{ backgroundColor: "#C9C9C9" }}
-    >
-      <Grid style={{ width: "100%", backgroundColor: "#C9C9C9" }} item>
-        <List>
-        <ListItem button component={Link} to="/dashboard/coachings/home">
-        <ListItemIcon>
-        <HomeIcon/>
-
-        </ListItemIcon>
-            <ListItemText primary="Home" />
-        </ListItem>
-        <ListItem button>
-            <ListItemText primary="Create New Paper" />
-        </ListItem>
-        <ListItem button>
-            <ListItemText primary="" />
-        </ListItem>
-        <ListItem button>
-            <ListItemText primary="Spam" />
-        </ListItem>
-        <ListItem button>
-            <ListItemText primary="Trash" />
-        </ListItem>
-        <ListItem button>
-            <ListItemText primary="Spam" />
-        </ListItem>
-         
-        </List>
-      </Grid>
+    <div>
       <Grid
-        style={{ display: "flex", width: "100%", alignItems: "flex-end" }}
-        item
-        xs={12}
+        container
+        direction="row"
+        justify="space-between"
+        style={{ height: "90vh" }}
+        spacing={10}
       >
-        <Grid
-          style={{
-            padding: "6%",
-            backgroundColor: "#544E98",
-            color: "white",
-          }}
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          <Grid style={{ paddingTop: "2%" }} item xs={2}>
-            <ExitToAppIcon />
-          </Grid>
-          <Grid item alignItems="center" xs={5}>
-            <Typography variant="h6">Logout</Typography>
+        <Grid className="list-div" item xs={12} sm={12}>
+          <List>
+            <ListItem button component={Link} to="/dashboard/coachings/home">
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <CreateIcon />
+              </ListItemIcon>
+              <ListItemText primary="Create New Paper" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <LibraryBooksIcon />
+              </ListItemIcon>
+              <ListItemText primary="All Papers" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <CollectionsBookmarkIcon />
+              </ListItemIcon>
+              <ListItemText primary="batches" />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                <NoteIcon />
+              </ListItemIcon>
+              <ListItemText primary="Pre Made Dpp" />
+            </ListItem>
+          </List>
+        </Grid>
+        <Grid style={{ width: "100%" }} item xs={12} sm={12}>
+          <Grid
+            style={{
+              padding: "5%",
+              backgroundColor: "#544E98",
+              color: "white",
+              // marginTop: "50%",
+            }}
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <Grid style={{ paddingTop: "2%", height: "3vh" }} item xs={2}>
+              <ExitToAppIcon />
+            </Grid>
+            <Grid style={{ marginBottom: "0" }} item alignItems="center" xs={5}>
+              <Typography variant="button">Logout</Typography>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-    </Grid>
-    // </div>
+    </div>
   );
 
   const container =
@@ -198,8 +203,7 @@ function Navbar(props) {
         </Hidden>
       </nav>
       <div className="main-div">
-            <Home/>
-            
+        <Home />
       </div>
     </div>
   );

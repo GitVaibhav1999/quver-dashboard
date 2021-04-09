@@ -1,22 +1,13 @@
 .App {
-    margin-top: 2rem;
-    padding: 4rem;
-    height: 100rem;
-    text-align: center;
-    background-color: chartreuse;
-    background: rgb(94, 172, 153);
-    background: linear-gradient(
-      180deg,
-      rgba(94, 172, 153, 1) 0%,
-      rgba(199, 199, 199, 1) 0%,
-      rgba(162, 166, 206, 0) 4%,
-      rgba(167, 170, 206, 0) 100%,
-      rgba(209, 209, 209, 0) 100%,
-      rgba(255, 255, 255, 0) 100%,
-      rgba(0, 211, 255, 0) 100%,
-      rgba(255, 255, 255, 0) 100%,
-      rgba(184, 184, 184, 0.0028498459930846876) 100%,
-      rgba(235, 235, 235, 0) 100%,
-      rgba(206, 206, 206, 0) 100%
-    );
-  }
+  margin-top: 2vh;
+  width: 100%;
+  padding: 4rem;
+  height: 98vh;
+  text-align: center;
+  background: rgb(201, 201, 201);
+  background: linear-gradient(
+    180deg,
+    rgba(201, 201, 201, 1) 6%,
+    rgba(0, 0, 0, 0) 13%
+  );
+}
