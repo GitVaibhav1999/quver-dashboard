@@ -17,14 +17,18 @@ export default function Papers(props) {
  
   
     return (
-        <Grid container spacing={2} >
+       <Box m={2}>
+            <Box m={-1} mb={1}>
+                <Typography variant="h6">{props.title}</Typography>
+            </Box>
+            <Grid container spacing={1} >
                          {
                         props.data.map((data,index)=>                        
                         {
                         const {ID,Title,Time,Marks,NumofPaper}=data;
                         return(
                             < >
-                            <Grid item xs={6} md={4} key={ID}>
+                            <Grid item  key={ID}>
                                 <Card raised >
                                 <CardActionArea >
                                     <CardMedia                      
@@ -60,6 +64,7 @@ export default function Papers(props) {
                         )}                                           
 
         </Grid>
+       </Box>
         
     )
 }
