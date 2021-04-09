@@ -6,10 +6,12 @@ import Error from "./components/Error";
 import history from "./components/history";
 import Main from "./components/Main";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { CssBaseline } from "@material-ui/core";
 
 
 const App = () => {
   return (
+    <>
     <BrowserRouter history={history} >
       <Switch>
         <Redirect exact from="/" to="/dashboard/coachings" ></Redirect>
@@ -18,6 +20,8 @@ const App = () => {
         <Route component={Error}/>
       </Switch>
     </BrowserRouter>  
+    <CssBaseline/>
+    </>
   );
 };
 

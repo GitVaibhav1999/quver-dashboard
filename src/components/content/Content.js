@@ -10,7 +10,6 @@ import Automatic from "../CreateNewPaper/Automatic";
 import Manual from "../CreateNewPaper/Manual";
 import Home from "../Home/Home";
 import File from "../FileMangement/File";
-import Error from "../Error";
 import { Container } from "react-bootstrap";
 const id=1;
 

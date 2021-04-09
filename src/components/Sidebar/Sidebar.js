@@ -15,7 +15,7 @@ import { NavItem, NavLink, Nav } from "reactstrap";
 import classNames from "classnames";
 import { Link, useRouteMatch } from "react-router-dom";
 import SubMenu from "./SubMenu";
-import "./Sidebar.css";
+// import "./Sidebar.css";
 // import { NavLink as RRNavLink } from 'react-router-dom';
 
 
@@ -42,32 +42,30 @@ const SideBar = ({ isOpen, toggle ,path,search}) =>
         <span color="info" onClick={toggle} style={{ color: "#fff" }}>
         &times;
       </span>
-          <h3> Quver</h3>
-         
+          <h3> Quver</h3>        
         </div>
         <div className="side-menu">
           <Nav even vertical className="list-unstyled pb-3">
-            <p>Go Ahead</p>
-            <NavItem>
+            <NavItem className="mb-2">
               <NavLink tag={RRNavLink} active="active" to={`${path}/home${search}`}>
                 <FontAwesomeIcon icon={faBriefcase} className="mr-2" />
-                Home
+                 Home
               </NavLink>
             </NavItem>
-            <SubMenu path={path} search={search} title=" Create New Paper" icon={faHome} items={submenus[0]} />
-            <NavItem>
+            <SubMenu path={path} search={search} title="Create New Papers" icon={faHome} items={submenus[0]} />
+            <NavItem className="mb-2">
               <NavLink tag={Link} to={`${path}/calendar${search}`}>
                 <FontAwesomeIcon icon={faCalendar} className="mr-2" />
                 Calendar
               </NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem className="mb-2"> 
               <NavLink tag={Link} to={`${path}/file${search}`}>
                 <FontAwesomeIcon icon={faFile} className="mr-2" />
                 File Management
               </NavLink>
             </NavItem>
-            <NavItem className="">
+            <NavItem className="mb-2">
               <NavLink tag={Link} to={`${path}/manage${search}`}>
                 <FontAwesomeIcon icon={faSchool} className="mr-2" />
                Manage classes
@@ -86,7 +84,4 @@ const SideBar = ({ isOpen, toggle ,path,search}) =>
   )
 
 }
-
-
-
 export default SideBar;

@@ -12,10 +12,13 @@ import {
  
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import '../App.css'
+
 
 const Topbar = ({ toggleSidebar }) => {
-  const [topbarIsOpen, setTopbarOpen] = useState(true);
-  const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
+   
+const [topbarIsOpen, setTopbarOpen] = useState(true);
+const toggleTopbar = () => setTopbarOpen(!topbarIsOpen);
 
   return (
     <Navbar
@@ -23,7 +26,7 @@ const Topbar = ({ toggleSidebar }) => {
       light
       className="navbar shadow-sm p-3 mb-5 bg-white rounded"
       expand="md">
-      <Button color="info" onClick={toggleSidebar}>
+      <Button style={{backgroundColor:"#7386d5"}} onClick={toggleSidebar}>
         <FontAwesomeIcon icon={faAlignLeft} />
       </Button>
       <NavbarToggler onClick={toggleTopbar} />
@@ -33,8 +36,7 @@ const Topbar = ({ toggleSidebar }) => {
             <NavLink tag={Link} to={"/page-1"}>
               Login
             </NavLink>
-          </NavItem>
-         
+          </NavItem>        
         </Nav>
       </Collapse>
     </Navbar>
